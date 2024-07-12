@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://cid0jm0n41pvu"]
+
+[ext_resource type="Script" path="res://Script/outro_menu.gd" id="1_y6v28"]
+[ext_resource type="FontFile" uid="uid://dhm3qd1piml20" path="res://Prototype Asset/QuinqueFive.ttf" id="2_0rnct"]
+[ext_resource type="Texture2D" uid="uid://c1brkl7symyv7" path="res://New Sprite/Background/B1.png" id="2_uo5x0"]
+[ext_resource type="Texture2D" uid="uid://c8ehaqs4kedaa" path="res://New Sprite/Background/B2.png" id="3_p4wrp"]
+[ext_resource type="Texture2D" uid="uid://dgr850vp34i2j" path="res://New Sprite/Background/B4.png" id="4_b2eic"]
+[ext_resource type="Texture2D" uid="uid://cvpxtfmqnkfy8" path="res://New Sprite/Background/B3.png" id="5_vxd2m"]
+[ext_resource type="Texture2D" uid="uid://di24rlajnx5cq" path="res://New Sprite/Sprite/dogHD.png" id="7_vv2wu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0n8uq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35x15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bqms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7rup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gb5ra"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6v28")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uo5x0")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p4wrp")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_b2eic")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_vxd2m")
+
+[node name="TYFP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 119.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_0rnct")
+theme_override_font_sizes/font_size = 45
+text = "Thank you
+for playing"
+horizontal_alignment = 1
+
+[node name="Dog" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_right = 2868.0
+offset_bottom = 2877.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("7_vv2wu")
+metadata/_edit_lock_ = true
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 2
+offset_left = 104.0
+offset_top = 500.0
+offset_right = 536.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.027451, 0.0980392, 0.137255, 1)
+theme_override_colors/font_hover_color = Color(0.878431, 0.972549, 0.811765, 1)
+theme_override_fonts/font = ExtResource("2_0rnct")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0n8uq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_35x15")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4bqms")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7rup")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gb5ra")
+text = "Back to Menu"
+
+[node name="Shanty look" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 232.0
+offset_right = -488.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_0rnct")
+theme_override_font_sizes/font_size = 20
+text = "Shanty
+Game
+Jam"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

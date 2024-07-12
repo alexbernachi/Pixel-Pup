@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cjov6uskt5rs6"
+path="res://.godot/imported/pixelpup_test2.wav-3d7ada209463d91443ee7e11994833ee.sample"
+
+[deps]
+
+source_file="res://New Sprite/Audio/pixelpup_test2.wav"
+dest_files=["res://.godot/imported/pixelpup_test2.wav-3d7ada209463d91443ee7e11994833ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

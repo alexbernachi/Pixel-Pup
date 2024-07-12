@@ -1,0 +1,169 @@
+[gd_scene load_steps=14 format=3 uid="uid://bwd4klipaof5n"]
+
+[ext_resource type="Script" path="res://Script/players.gd" id="1_kn3x2"]
+[ext_resource type="Texture2D" uid="uid://bcfj8yyeqw2xm" path="res://New Sprite/Sprite/dogSprites_newFixed.png" id="2_7x15a"]
+[ext_resource type="AudioStream" uid="uid://csqyfsdldbvwc" path="res://Audio/Jump.wav" id="3_63vaq"]
+[ext_resource type="AudioStream" uid="uid://c7aih6b8kcdaj" path="res://New Sprite/Audio/lose_sound.wav" id="4_mc2vy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfkbn"]
+size = Vector2(14, 15)
+
+[sub_resource type="Animation" id="Animation_a65hq"]
+resource_name = "Death"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_do2kf"]
+resource_name = "Down"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_gfy04"]
+resource_name = "Jump"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_b84f6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_w4sxk"]
+resource_name = "Up"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_oig6c"]
+resource_name = "Walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a6iuo"]
+_data = {
+"Death": SubResource("Animation_a65hq"),
+"Down": SubResource("Animation_do2kf"),
+"Jump": SubResource("Animation_gfy04"),
+"RESET": SubResource("Animation_b84f6"),
+"Up": SubResource("Animation_w4sxk"),
+"Walk": SubResource("Animation_oig6c")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvx40"]
+radius = 8.0
+
+[node name="Players" type="CharacterBody2D"]
+visibility_layer = 3
+script = ExtResource("1_kn3x2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7x15a")
+flip_h = true
+hframes = 8
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 15
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_nfkbn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a6iuo")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.5, 4.5)
+limit_left = 0
+position_smoothing_speed = 2.0
+drag_horizontal_enabled = true
+drag_left_margin = 0.09
+drag_right_margin = 0.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_63vaq")
+volume_db = -20.014
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mc2vy")
+volume_db = -20.485
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_bvx40")
+debug_color = Color(0.74902, 0.454902, 0.196078, 0.419608)
+
+[node name="Death_Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ovk50ceoy4pn"]
+
+[ext_resource type="Script" path="res://Script/coins.gd" id="1_2kni4"]
+[ext_resource type="Texture2D" uid="uid://c68oy5a64wr6c" path="res://New Sprite/Sprite/coin_sprite.png" id="2_rngxj"]
+[ext_resource type="Texture2D" uid="uid://cpfmkair4hhv8" path="res://Prototype Asset/gbtileset/sprites/coin/001.png" id="2_ruc3q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ce2th"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rngxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ruc3q")
+}],
+"loop": true,
+"name": &"twisting",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqx76"]
+radius = 4.12311
+
+[node name="Coins" type="Area2D"]
+script = ExtResource("1_2kni4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ce2th")
+animation = &"twisting"
+frame_progress = 0.642995
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+shape = SubResource("CircleShape2D_qqx76")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

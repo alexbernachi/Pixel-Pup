@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=3 uid="uid://ditehk6soa40y"]
+
+[ext_resource type="Script" path="res://Script/Credit.gd" id="1_40nhe"]
+[ext_resource type="Texture2D" uid="uid://c1brkl7symyv7" path="res://New Sprite/Background/B1.png" id="2_j3q2l"]
+[ext_resource type="Texture2D" uid="uid://c8ehaqs4kedaa" path="res://New Sprite/Background/B2.png" id="3_uiq6c"]
+[ext_resource type="Texture2D" uid="uid://dgr850vp34i2j" path="res://New Sprite/Background/B4.png" id="4_cd7si"]
+[ext_resource type="Texture2D" uid="uid://cvpxtfmqnkfy8" path="res://New Sprite/Background/B3.png" id="5_thqrs"]
+[ext_resource type="FontFile" uid="uid://dhm3qd1piml20" path="res://Prototype Asset/QuinqueFive.ttf" id="6_qmobj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kxxd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3hcqw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbc7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tgla"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsjbp"]
+
+[node name="Credit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40nhe")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j3q2l")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uiq6c")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cd7si")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_thqrs")
+
+[node name="TYFP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_right = 162.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_qmobj")
+theme_override_font_sizes/font_size = 45
+text = "Credit"
+horizontal_alignment = 1
+
+[node name="Shanty look" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -316.0
+offset_top = -224.0
+offset_right = 316.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.027451, 0.0980392, 0.137255, 1)
+theme_override_fonts/font = ExtResource("6_qmobj")
+theme_override_font_sizes/font_size = 10
+text = "Todokicat: 
+Level Music
+coloring for dog art/logo
+dog sprites design
+
+Tameria: 
+Background art
+
+Galaxmii: 
+Programmer
+
+Varchie: 
+Concept dog Art/Logo
+
+
+
+Resources:
+
+Font:
+QuinqueFive
+ThatBoy 
+
+Tileset:
+Ben Legget - \"RETRO GAMEBOY STYLE PLATFORM TILESET
+
+Sound/Music:
+Hunter Audio Production"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -56.0
+offset_right = 216.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.027451, 0.0980392, 0.137255, 1)
+theme_override_colors/font_hover_color = Color(0.878431, 0.972549, 0.811765, 1)
+theme_override_fonts/font = ExtResource("6_qmobj")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8kxxd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3hcqw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dbc7n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3tgla")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsjbp")
+text = "Back to Menu"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

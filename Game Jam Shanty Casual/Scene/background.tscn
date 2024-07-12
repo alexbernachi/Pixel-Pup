@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1m2vxefny3ve"]
+
+[ext_resource type="Texture2D" uid="uid://ctv3t25eqhf0x" path="res://New Sprite/BGNew/Bg1.png" id="1_5aseg"]
+[ext_resource type="Texture2D" uid="uid://cijcf4x7oftkj" path="res://New Sprite/BGNew/Bg2.png" id="2_rcpmd"]
+[ext_resource type="Texture2D" uid="uid://vdt43xxpipjn" path="res://New Sprite/BGNew/Bg3.png" id="3_b1wvb"]
+
+[node name="BACKGROUND" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5aseg")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(640, 0)
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rcpmd")
+metadata/_edit_use_anchors_ = true
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground2"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(640, 0)
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/ParallaxBackground2/ParallaxLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_b1wvb")
+metadata/_edit_use_anchors_ = true

@@ -1,0 +1,148 @@
+[gd_scene load_steps=13 format=3 uid="uid://se3nfhjd0qay"]
+
+[ext_resource type="Script" path="res://Script/intro_menu.gd" id="1_7sd8a"]
+[ext_resource type="FontFile" uid="uid://dhm3qd1piml20" path="res://Prototype Asset/QuinqueFive.ttf" id="2_kriv8"]
+[ext_resource type="Texture2D" uid="uid://bhm1xoihb5bcl" path="res://New Sprite/Background Gameplay.jpg" id="3_64f0o"]
+[ext_resource type="Texture2D" uid="uid://jlon7yyhu3nv" path="res://New Sprite/title.png" id="4_b2gq8"]
+[ext_resource type="Texture2D" uid="uid://di24rlajnx5cq" path="res://New Sprite/Sprite/dogHD.png" id="5_hfapi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ptopc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ngha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dshwq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wff6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d47ta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uridt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1ahg"]
+
+[node name="Intro Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7sd8a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -196.0
+offset_right = 144.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+theme_override_colors/font_color = Color(0.027451, 0.0980392, 0.137255, 1)
+theme_override_colors/font_hover_color = Color(0.878431, 0.972549, 0.811765, 1)
+theme_override_fonts/font = ExtResource("2_kriv8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ptopc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ngha")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dshwq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wff6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d47ta")
+text = "Start"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Credit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.027451, 0.0980392, 0.137255, 1)
+theme_override_colors/font_hover_color = Color(0.878431, 0.972549, 0.811765, 1)
+theme_override_fonts/font = ExtResource("2_kriv8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ptopc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7ngha")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dshwq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wff6r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d47ta")
+text = "Credit
+"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+theme_override_colors/font_color = Color(0.027451, 0.0980392, 0.137255, 1)
+theme_override_colors/font_hover_color = Color(0.886275, 0.972549, 0.823529, 1)
+theme_override_fonts/font = ExtResource("2_kriv8")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uridt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s1ahg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s1ahg")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s1ahg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s1ahg")
+text = "Quit"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_64f0o")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Title" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2868.0
+offset_bottom = 2932.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("4_b2gq8")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Dog" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -280.0
+offset_right = 3196.0
+offset_bottom = 3228.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("5_hfapi")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

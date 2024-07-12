@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmy1bb0j6g6xm"]
+
+[ext_resource type="Script" path="res://Script/Audio_Manager.gd" id="1_vj85e"]
+[ext_resource type="AudioStream" uid="uid://dc5r1nbrqughh" path="res://Audio/Music_Loop_2_Full.wav" id="2_xkdrf"]
+[ext_resource type="AudioStream" uid="uid://6bm7hdld2qme" path="res://New Sprite/Audio/coin_sound.wav" id="3_134ic"]
+[ext_resource type="AudioStream" uid="uid://cjov6uskt5rs6" path="res://New Sprite/Audio/pixelpup_test2.wav" id="4_tmkrr"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_vj85e")
+
+[node name="titleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xkdrf")
+volume_db = -21.535
+autoplay = true
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_134ic")
+volume_db = -20.485
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tmkrr")
+volume_db = -25.212
